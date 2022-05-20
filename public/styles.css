@@ -1,0 +1,62 @@
+
+
+body{
+
+      width: 98vw;
+      height: 90vh; 
+      
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      background-color: rgb(255, 255, 255);
+}
+
+.appMainContainer{
+
+
+
+}
+
+.logInContainer{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+
+      width: 600px;
+      height: 600px;
+
+      background-color: aquamarine;
+
+      border-radius: 100%;
+      box-shadow: inset black 0px 0px 2px 2px;
+
+}
+
+.input{
+
+      margin-top: 20px;
+
+}
+
+.submitButton{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      margin-top: 10px;
+      width: 80px;
+      height: 30px;
+
+      border: black solid 2px;
+
+      user-select: none;
+}
+
+.submitButton:hover{
+      background-color: white;
+}
+
