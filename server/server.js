@@ -14,15 +14,15 @@ app.listen(port, () => {
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
-// const db = new sqlite3.Database(
-// 	"./users.db",
-// 	sqlite3.OPEN_READWRITE,
-// 	(err) => {
-// 		if (err) {
-// 			return console.error(err.message);
-// 		} else {
-// 			console.log("\nSuccess!\n"); 
-// 		}
-// 	}
-// );
+const db = new sqlite3.Database(
+	"server/users.db",
+	sqlite3.OPEN_READWRITE,
+	(err) => {
+		if (err) {
+			return console.error(err.message);
+		} else {
+			console.log("\nSuccess!\n"); 
+		}
+	}
+);
 
