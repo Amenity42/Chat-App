@@ -10,7 +10,7 @@ const inputPassword = document.getElementById('inputPassword');
 //On click get data and pass to back end 
 submitBtn.addEventListener('click', () => {
 
-      //cCheck user is not blank
+      //Check user is not blank
       if(inputUsername.value === "" || inputPassword.value === ""){
 
             
@@ -20,6 +20,24 @@ submitBtn.addEventListener('click', () => {
 
 
       }
+
+      //Check input is not longer than 20 chracters
+      if(inputUsername.value.length > 20){
+
+            alert('User name exceeds 20 characters');
+
+            throw new Error('Username exceeds 20 characters');
+
+      }
+
+      if(inputPassword.value.length > 20){
+
+            alert('Password exceeds 20 characters');
+
+            throw new Error('Password exceeds 20 characters');
+
+      }
+
 
       console.log('button was clicked');
 
