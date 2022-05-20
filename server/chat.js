@@ -21,6 +21,9 @@ let loginInput = {
 
 checkUser(loginInput);
 
+
+
+
 async function checkUser(user) {
 	//waits till db loaded
 	let validUname = onlyLettersAndNumbers(user.loginUsername);
