@@ -1,9 +1,9 @@
 const express = require('express');
 const sqlite3 = require("sqlite3");
+const dbMethods = require("./dbConnection");
 const app = express();
 const port = 3000;
 
-let restArray = [];
 
 app.use(express.static('public'));
 
@@ -14,15 +14,33 @@ app.listen(port, () => {
 app.use(express.urlencoded({ extended: true}));
 app.use(express.json());
 
-const db = new sqlite3.Database(
-	"server/users.db",
-	sqlite3.OPEN_READWRITE,
-	(err) => {
-		if (err) {
-			return console.error(err.message);
-		} else {
-			console.log("\nSuccess!\n"); 
-		}
-	}
-);
+//*--------------------DB Connection-----------------------
+
+
+dbMethods.connectToDb();
+
+
+//*-------------------------API---------------------------
+
+
+
+//*------- Get Requests ---------
+
+// * Promise based
+app.get("/getusers/:id", async (request, response) => {
+
+      const test = await dbMethods.getDataById(request.params.id); //Parses in a obj
+      
+      response.json(cafes);
+
+});
+
+// * Promise based
+app.get("/getAllUsers", async (request, response) => {
+
+      const test = await dbMethods.getAllData(); //Parses in a obj
+      
+      response.json(test);
+
+});
 
