@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Cha'app</title>
+
+      <script src="./modules/clientSideLogic.js" defer></script>
+      <!-- <script src="./modules/login_logic.js" defer></script> -->
+      <link rel="stylesheet" href="chatPageStyles.css">
+
+</head>
+<body>
+      <!-- Contains whole application page -->
+      <div class="appMainContainer">
+
+            <!-- Contains menu / room info / user -->
+            <div class="header">
+
+                  <div class="menu" id="menu"></div>
+                  <div class="userIcon" id="userIcon"></div>
+
+            </div>
+
+
+            <section class="messageContainer" id="messageContainer">
+
+                  <!-- Messages will be displayed here -->
+
+            </section>
+
+            <!-- This is where users will input data -->
+            <section class="inputSection" id="inputSection">
+
+                  <input class="messageInput" id="messageInput"></input>
+                  <button class="messageSend" id="messageSend">Send</button>
+
+            </section>
+
+      </div>
+      
+</body>
+</html>
