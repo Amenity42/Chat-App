@@ -1,9 +1,24 @@
 const express = require('express');
 const sqlite3 = require("sqlite3");
+
+const io = require("socket.io")(4000, {
+      cors:{origin:  '*'},
+});
+
 const dbMethods = require("./dbConnection");
 const app = express();
 const port = 3000;
 
+//Socket.io testing stuff
+
+io.on('connection', (socket) => {
+
+      console.log(socket.id);
+
+});
+
+
+//----------------
 
 app.use(express.static('public'));
 
