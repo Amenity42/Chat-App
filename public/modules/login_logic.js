@@ -1,9 +1,6 @@
 
 //* --------------------------------Login screen---------------------------------------- 
 
-const { response } = require("express");
-
-
 const submitBtn = document.getElementById('submitButton');
 const inputUsername = document.getElementById('inputUsername');
 const inputPassword = document.getElementById('inputPassword');
@@ -56,8 +53,26 @@ submitBtn.addEventListener('click', () => {
             body: JSON.stringify(userInput)
           
       })
-      .then(response => {console.log(response.status)})
-      .then(/*log user in if valid*/);
+      .then(response => response.json())
+      .then(data => {
+            console.log(data);
+
+            if(data === 0){
+                  alert('Password is incorrect');
+                  return
+            }
+            if(data === 1){
+                  //Log user in
+                  alert('User loging in');
+                  return
+            }
+            if(data === 2){
+                  alert('User does not exist');
+                  return
+            }
+            
+
+      });
 
 });
 

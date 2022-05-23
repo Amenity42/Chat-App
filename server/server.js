@@ -1,6 +1,8 @@
 const express = require('express');
 const sqlite3 = require('sqlite3');
 
+const checkUser = require('./chat')
+
 const dbMethods = require('./dbConnection');
 const app = express();
 const port = 3000;
@@ -61,12 +63,18 @@ app.get('/getAllUsers', async (request, response) => {
 });
 
 // * Promise based
-app.post('/userInfo', (request, response) => {
+app.post('/userInfo', async (request, response) => {
 
 	const data = request.body;
 
-	console.log(data);
+	//console.log(data);
 
-	response.sendStatus(200);
+	const result = await checkUser.checkUser(data);
+
+	console.log(result);
+
+	//response.sendStatus(200);
+
+	response.send(JSON.stringify(result));
 
 });
