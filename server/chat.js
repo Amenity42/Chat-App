@@ -23,7 +23,6 @@ checkUser(loginInput);
 
 
 
-
 async function checkUser(user) {
 	//waits till db loaded
 	let validUname = onlyLettersAndNumbers(user.loginUsername);
@@ -57,5 +56,10 @@ function sqlUserExists(user) {
 function onlyLettersAndNumbers(str) {
 	return /^[A-Za-z0-9]*$/.test(str);
 }
+
+
+module.exports = checkUser;
+module.exports = sqlUserExists;
+module.exports = onlyLettersAndNumbers;
 
 //db.run("INSERT INTO users(username, password) VALUES('"+loginInput.loginUsername+"', '"+loginInput.loginPassword+"')");

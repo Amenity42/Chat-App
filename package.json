@@ -1,6 +1,6 @@
 {
   "devDependencies": {
-    "jest": "^28.0.2"
+    "jest": "^28.1.0"
   },
   "name": "bootcamp",
   "description": "",
@@ -202,7 +202,7 @@
     "yargs-parser": "^21.0.1"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll",
     "test:report": "jest --coverage=true"
   },
   "repository": {
