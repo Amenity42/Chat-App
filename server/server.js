@@ -62,8 +62,25 @@ app.get('/getAllUsers', async (request, response) => {
 	response.json(test);
 });
 
-// * Promise based
+// * Check user info
 app.post('/userInfo', async (request, response) => {
+
+	const data = request.body;
+
+	//console.log(data);
+
+	const result = await checkUser.checkUser(data);
+
+	console.log(result);
+
+	//response.sendStatus(200);
+
+	response.send(JSON.stringify(result));
+
+});
+
+// * Check user info
+app.post('/createUser', async (request, response) => {
 
 	const data = request.body;
 
