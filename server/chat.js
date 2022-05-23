@@ -26,38 +26,35 @@ async function checkUser(user) {
 	console.log(`username check: ${validUname}`); 
 	console.log(`password check: ${validPword}`);
 
-	const checkUserExists = await sqlUserExists(user)[0];
 
-	sqlUserExists(user)[0]
-	.then(function (success)
-	{
 
-	})
-	.cat
-
-	if(checkUserExists === undefined){
-
-		console.log(sqlUserExists(user));
-		console.log(`user does not exist in db`);
-		return 2;
-
-	}
-
+	//Check if username and password have valid characters
 	if (validPword === true && validUname === true) {
 
-		
-
-		if (checkUserExists.password === user.inputPassword) {
+		let checkUserExists = await sqlUserExists(user);
+	//Check user is in db		
+	if(checkUserExists[0]!=undefined){
+		//Check password is correct
+		if (checkUserExists[0].password === user.inputPassword) {
 
 			console.log('Password Matches');
 			return 1;
+
 		} else {
+
 			console.log(`Password does not match`);
 			return 0;
+
 		}
-	}else{
+		
+	} else {
+		console.log('User does not exist');
+		return 2;
+	}
+	} else {
 		console.log('Error');
 	return new error("Invalid Password/Username");
+
 	};
 
 
