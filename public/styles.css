@@ -4,19 +4,14 @@ body{
 
       width: 98vw;
       height: 90vh; 
-      
+      font-family: 'Aleo', serif;
       display: flex;
       justify-content: center;
       align-items: center;
 
-      background-color: rgb(255, 255, 255);
+      background-color: rgb(196, 196, 196);
 }
 
-.appMainContainer{
-
-
-
-}
 
 .logInContainer{
 
@@ -28,35 +23,83 @@ body{
       width: 600px;
       height: 600px;
 
-      background-color: aquamarine;
+      background-color: #ffffff;
 
-      border-radius: 100%;
+      border-radius: 55px;
       box-shadow: inset black 0px 0px 2px 2px;
+      font-size: 22px;
+      font-family: 'Aleo', serif;
 
+}
+.image{
+      height: 300px;
+      width: 300px;
 }
 
 .input{
-
       margin-top: 20px;
 
+      font-size: 14px;
+      border-radius: 6px;
+      line-height: 1.5;
+      padding: 5px 10px;
+      transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+      border: 2px solid black;
+      color: rgb(14, 14, 16);
+      background: #38B6FF;
+      display: block;
+      height: 36px;
+      font-family: 'Aleo', serif;
 }
+.input:hover {
+          border-color: navy;
+          font-family: 'Aleo', serif;
+      }
+
+.input:focus{
+          border-color: black;
+          background: #fff;
+          font-family: 'Aleo', serif;
+      }
+      
 
 .submitButton{
 
-      display: flex;
+  /*    display: flex;
       justify-content: center;
       align-items: center;
       
-      margin-top: 10px;
+      margin-top: 15px;
       width: 80px;
       height: 30px;
 
       border: black solid 2px;
 
       user-select: none;
+      */
+
+      display: inline-block;
+      outline: 0;
+      cursor: pointer;
+      border: 2px solid #000;
+      border-radius: 3px;
+      color: #000;
+      background: #38B6FF;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 28px;
+      padding: 12px 20px;
+      text-align:center;
+      transition-duration: .15s;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(.4,0,.2,1);
+      margin-top: 15px;
+      font-family: 'Aleo', serif;
 }
 
 .submitButton:hover{
-      background-color: white;
+      background: white;
+      font-family: 'Aleo', serif;
+      border-color: navy;
 }
 
