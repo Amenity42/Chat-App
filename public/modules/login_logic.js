@@ -1,6 +1,8 @@
 
 //* --------------------------------Login screen---------------------------------------- 
 
+const { response } = require("express");
+
 
 const submitBtn = document.getElementById('submitButton');
 const inputUsername = document.getElementById('inputUsername');
@@ -45,6 +47,20 @@ submitBtn.addEventListener('click', () => {
 
       console.log(userInput);
 
+      fetch('/userInfo', {
+
+            method: 'POST',
+            headers: {
+                  'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userInput)
+          
+      })
+      .then(response => {console.log(response.status)})
+      .then(/*log user in if valid*/);
+
 });
+
+
 
 
