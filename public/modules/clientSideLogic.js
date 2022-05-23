@@ -1,3 +1,6 @@
+// import { io } from 'socket.io-client/dist/socket.io';
+const socket = io('http://localhost:8080');
+
 class Message {
 	constructor(message, user) {
 		this.message = message;
@@ -11,16 +14,19 @@ const messageContainer = document.getElementById('messageContainer');
 const sendBtn = document
 	.getElementById('messageSend')
 	.addEventListener('click', handleMessage);
+
 const enterBtn = messageInput.addEventListener('keydown', (key) => {
+
 	if (key.keyCode === 13) {
 		//keycode is depreciated ---  need to use something else ...
 
 		handleMessage();
 	}
+
 });
 
 function handleMessage() {
-	
+
 	if (messageInput.value === '' || messageInput.value === null) {
 		console.log('No message to display');
 		return;
@@ -32,11 +38,12 @@ function handleMessage() {
 
 	postMessageToChat(message);
 
+	sendMessageToServer(message);
+
 	messageInput.value = null;
 }
 
 function postMessageToChat(message) {
-    
 	const messagePacket = document.createElement('div');
 
 	messagePacket.id = 'message';
@@ -46,5 +53,13 @@ function postMessageToChat(message) {
 
 	messageContainer.appendChild(messagePacket);
 
+	// console.table(message);
+}
+
+function sendMessageToServer(message){
+
+	socket.emit('message', message);
+	console.log('Message sent to server');
 	console.table(message);
+
 }
