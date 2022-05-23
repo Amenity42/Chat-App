@@ -1,3 +1,5 @@
+const socket = io('http://localhost:8080');
+
 class Message {
 	constructor(message, user) {
 		this.message = message;
@@ -16,6 +18,7 @@ const enterBtn = messageInput.addEventListener('keydown', (key) => {
 		//keycode is depreciated ---  need to use something else ...
 
 		handleMessage();
+		
 	}
 });
 
@@ -33,6 +36,8 @@ function handleMessage() {
 	postMessageToChat(message);
 
 	messageInput.value = null;
+
+	sendDataToServer(message);
 }
 
 function postMessageToChat(message) {
@@ -47,4 +52,10 @@ function postMessageToChat(message) {
 	messageContainer.appendChild(messagePacket);
 
 	console.table(message);
+}
+
+function sendDataToServer(message){
+
+	socket.emit('message', message);
+
 }
