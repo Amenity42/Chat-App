@@ -39,13 +39,11 @@ submitBtn.addEventListener('click', () => {
       }
 
 
-      console.log('user logged in');
+      console.log('button was clicked');
 
       const userInput = {inputUsername: inputUsername.value, inputPassword: inputPassword.value};
 
       console.log(userInput);
-
-      
 
 });
 

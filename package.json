@@ -1,7 +1,6 @@
 {
   "devDependencies": {
-    "jest": "^28.0.2",
-    "parcel-bundler": "^1.12.5"
+    "jest": "^28.0.2"
   },
   "name": "bootcamp",
   "description": "",
@@ -169,7 +168,6 @@
     "sisteransi": "^1.0.5",
     "slash": "^3.0.0",
     "socket.io": "^4.5.1",
-    "socket.io-client": "^4.5.1",
     "source-map": "^0.5.7",
     "source-map-support": "^0.5.13",
     "sprintf-js": "^1.0.3",
@@ -205,19 +203,17 @@
   },
   "scripts": {
     "test": "jest",
-    "test:report": "jest --coverage=true",
-    "dev": "parcel index.html",
-    "build": "parcel build index.html"
+    "test:report": "jest --coverage=true"
   },
   "repository": {
     "type": "git",
-    "url": ""
+    "url": "git+https://github.com/alfiearmadillo/bootcamp.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": ""
+    "url": "https://github.com/alfiearmadillo/bootcamp/issues"
   },
-  "homepage": "",
+  "homepage": "https://github.com/alfiearmadillo/bootcamp#readme",
   "keywords": []
 }

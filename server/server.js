@@ -27,10 +27,6 @@ socket.on('connection', (socket) => {
 
 
 
-
-
-
-
 //----------------
 
 app.use(express.static('../public'));
@@ -40,7 +36,7 @@ app.listen(port, () => {
 });
 
 app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
+app.use(express.json()); //Turns recived data back into JS object
 
 //*--------------------DB Connection-----------------------
 
@@ -64,8 +60,13 @@ app.get('/getAllUsers', async (request, response) => {
 	response.json(test);
 });
 
-// sendFile will go here
-app.get('/home', function (req, res) {
-	console.log('hit');
-	res.sendFile('../public/index.html');
+// * Promise based
+app.post('/userInfo', (request, response) => {
+
+	const data = request.body;
+
+	console.log(data);
+
+	response.sendStatus(200);
+
 });
