@@ -41,7 +41,7 @@ async function checkUser(user) {
 };
 
 function sqlUserExists(user) {
-	//return 1 or 0 based on if user exists
+	//return true or false based on if user exists
 	const sqlStatement = `SELECT * FROM users WHERE username = '${user.loginUsername}'`;
 	return new Promise((res, rej) => {
 		db.all(sqlStatement, (err, rows) => {

@@ -44,3 +44,11 @@ app.get("/getAllUsers", async (request, response) => {
 
 });
 
+
+app.get("/recieveLogin", async (request, response) => {
+
+    let loginInput = await request;
+
+    console.log(loginInput);
+
+});

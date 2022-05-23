@@ -45,6 +45,8 @@ submitBtn.addEventListener('click', () => {
 
       console.log(userInput);
 
+      fetch('/recieveLogin', userInput);
+
 });
 
 
