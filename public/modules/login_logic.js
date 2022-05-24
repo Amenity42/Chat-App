@@ -18,7 +18,7 @@ submitBtn.addEventListener('click', () => {
             //alert('Please enter username and password!');
             messageAlert.innerHTML = 'Please enter username and password!';
 
-            throw new Error('No username or password detected');
+            // throw new Error('No username or password detected');
 
 
       }
@@ -29,7 +29,7 @@ submitBtn.addEventListener('click', () => {
             //alert('User name must be between 0 - 20 characters');
             messageAlert.innerHTML = 'User name must be between 0 - 20 characters';
 
-            throw new Error('User name must be between 0 - 20 characters');
+            // throw new Error('User name must be between 0 - 20 characters');
 
       }
 
@@ -37,7 +37,7 @@ submitBtn.addEventListener('click', () => {
 
             //alert('Password must be between 6 - 20 characters');
             messageAlert.innerHTML = 'Password must be between 6 - 20 characters';
-            throw new Error('Password must be between 6 - 20 characters');
+            // throw new Error('Password must be between 6 - 20 characters');
 
       }
 
@@ -63,7 +63,7 @@ submitBtn.addEventListener('click', () => {
 
             if(data === 0){
 
-                  alert('Password is incorrect');
+                  // alert('Password is incorrect');
                   userPromt(0);
                   return;
 
@@ -71,13 +71,13 @@ submitBtn.addEventListener('click', () => {
             if(data === 1){
 
                   //Log user in
-                  alert('User loging in');
+                  // alert('User loging in');
                   userPromt(1);
                   return;
             }
             if(data === 2){
 
-                  alert('User does not exist');
+                  // alert('User does not exist');
                   userPromt(2);
                   return;
 
