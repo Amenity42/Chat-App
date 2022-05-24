@@ -12,11 +12,11 @@ body{
       background-color: rgb(255, 255, 255);
 }
 
-.appMainContainer{
+/* .appMainContainer{
 
 
 
-}
+} */
 
 .logInContainer{
 
@@ -41,22 +41,51 @@ body{
 
 }
 
-.submitButton{
-
+.buttonContainer{
+      
       display: flex;
       justify-content: center;
       align-items: center;
       
       margin-top: 10px;
+
+}
+
+
+
+.button{
+
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      
+      margin: 5px;
       width: 80px;
       height: 30px;
 
       border: black solid 2px;
 
       user-select: none;
+
 }
 
-.submitButton:hover{
+.button:hover{
       background-color: white;
+}
+
+#messageAlerts{
+
+      color: red;
+
+      position: absolute;
+      top: 470px;
+
+      text-align: center;
+
+      width: 300px;
+
+      user-select: none;
+
 }
 
