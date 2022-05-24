@@ -22,14 +22,14 @@ async function newUser(user){
 		let checkUserExists = await dbMethods.sqlUserExists(user);
 		if(checkUserExists[0]!=undefined){
 			console.log('Username is already taken');
-			return 0
+			return 3
 		} else {
 			dbMethods.addRow(user.inputUsername, user.inputPassword);
-			return 1;
+			return 4;
 		}
 	} else {
 		console.log('Username/password cannot contain non letter/number/underscore characters.');
-		return 2
+		return 5
 	};
 }
 
