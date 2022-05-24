@@ -1,6 +1,7 @@
 //Login
 //Register
 const sqlite3 = require("sqlite3");
+const dbMethods = require('./dbConnection');
 
 const db = new sqlite3.Database(
 	"users.db",
@@ -14,7 +15,23 @@ const db = new sqlite3.Database(
 	}
 );
 
-
+async function newUser(user){
+	let validUname = onlyLettersAndNumbers(user.inputUsername); //true / false
+	let validPword = onlyLettersAndNumbers(user.inputPassword);
+	if (validPword === true && validUname === true) {
+		let checkUserExists = await dbMethods.sqlUserExists(user);
+		if(checkUserExists[0]!=undefined){
+			console.log('Username is already taken');
+			return 0
+		} else {
+			dbMethods.addRow(user.inputUsername, user.inputPassword);
+			return 1;
+		}
+	} else {
+		console.log('Username/password cannot contain non letter/number/underscore characters.');
+		return 2
+	};
+}
 
 async function checkUser(user) {
 
@@ -26,27 +43,19 @@ async function checkUser(user) {
 	console.log(`username check: ${validUname}`); 
 	console.log(`password check: ${validPword}`);
 
-
-
 	//Check if username and password have valid characters
 	if (validPword === true && validUname === true) {
-
-		let checkUserExists = await sqlUserExists(user);
+		let checkUserExists = await dbMethods.sqlUserExists(user);
 	//Check user is in db		
 	if(checkUserExists[0]!=undefined){
 		//Check password is correct
 		if (checkUserExists[0].password === user.inputPassword) {
-
 			console.log('Password Matches');
 			return 1;
-
 		} else {
-
 			console.log(`Password does not match`);
 			return 0;
-
 		}
-		
 	} else {
 		console.log('User does not exist');
 		return 2;
@@ -54,36 +63,14 @@ async function checkUser(user) {
 	} else {
 		console.log('Error');
 	return new error("Invalid Password/Username");
-
 	};
-
-
 };
 
-function sqlUserExists(user) {
-
-	console.log(`Checking db for user `);
-	//return 1 or 0 based on if user exists
-	const sqlStatement = `SELECT * FROM users WHERE username = '${user.inputUsername}'`;
-	return new Promise((res, rej) => {
-		db.all(sqlStatement, (err, rows) => {
-			if (err) {
-				rej(new Error(err.message));
-			} else {
-				res(rows);
-			}
-		});
-	});
-}
-
 function onlyLettersAndNumbers(str) {
-
 	console.log(`Checking if string is letters and numbers: ${str}`); //! undefined
-
-	return /^[A-Za-z0-9]*$/.test(str);
+	return /^[A-Za-z0-9_]*$/.test(str);
 }
 
 //db.run("INSERT INTO users(username, password) VALUES('"+loginInput.inputUsername+"', '"+loginInput.inputPassword+"')");
 
-
-module.exports = {checkUser};
+module.exports = {checkUser, newUser};
