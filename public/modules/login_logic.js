@@ -2,6 +2,8 @@
 //* --------------------------------Login screen---------------------------------------- 
 
 const submitBtn = document.getElementById('submitButton');
+const newUser = document.getElementById('newUserButton');
+const messageAlert = document.getElementById('messageAlerts');
 const inputUsername = document.getElementById('inputUsername');
 const inputPassword = document.getElementById('inputPassword');
 
@@ -13,7 +15,8 @@ submitBtn.addEventListener('click', () => {
       if(inputUsername.value === "" || inputPassword.value === ""){
 
             
-            alert('Please enter username and password!');
+            //alert('Please enter username and password!');
+            messageAlert.innerHTML = 'Please enter username and password!';
 
             throw new Error('No username or password detected');
 
@@ -23,7 +26,8 @@ submitBtn.addEventListener('click', () => {
       //Check input is not longer than 20 chracters
       if(inputUsername.value.length > 20 || inputUsername.value.length < 3){
 
-            alert('User name must be between 0 - 20 characters');
+            //alert('User name must be between 0 - 20 characters');
+            messageAlert.innerHTML = 'User name must be between 0 - 20 characters';
 
             throw new Error('User name must be between 0 - 20 characters');
 
@@ -31,8 +35,8 @@ submitBtn.addEventListener('click', () => {
 
       if(inputPassword.value.length > 20 || inputPassword.value.length < 6){
 
-            alert('Password must be between 6 - 20 characters');
-
+            //alert('Password must be between 6 - 20 characters');
+            messageAlert.innerHTML = 'Password must be between 6 - 20 characters';
             throw new Error('Password must be between 6 - 20 characters');
 
       }
@@ -58,23 +62,57 @@ submitBtn.addEventListener('click', () => {
             console.log(data);
 
             if(data === 0){
+
                   alert('Password is incorrect');
-                  return
+                  userPromt(0);
+                  return;
+
             }
             if(data === 1){
+
                   //Log user in
                   alert('User loging in');
-                  return
+                  userPromt(1);
+                  return;
             }
             if(data === 2){
+
                   alert('User does not exist');
-                  return
+                  userPromt(2);
+                  return;
+
             }
             
 
       });
 
 });
+
+function userPromt(accessCode){
+
+      if(accessCode === 0){
+
+            //Set message to Password incorrect
+            messageAlert.innerHTML = 'Password is incorrect'
+            return;
+      }
+      if(accessCode === 1){
+
+            //Set message to logged in
+            messageAlert.innerHTML = 'Logging in'
+            return;
+
+      }
+      if(accessCode === 2){
+            
+            //Set message to user does not exist
+            messageAlert.innerHTML = 'User does not exist'
+            return;
+
+      }
+
+
+}
 
 
 
