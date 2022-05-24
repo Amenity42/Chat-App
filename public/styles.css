@@ -2,14 +2,15 @@
 
 body{
 
-      width: 98vw;
-      height: 90vh; 
+            width: 98vw;
+            height: 90vh; 
+            font-family: 'Aleo', serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
       
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      background-color: rgb(255, 255, 255);
+            background-color: rgb(196, 196, 196);
+      
 }
 
 /* .appMainContainer{
@@ -28,11 +29,19 @@ body{
       width: 600px;
       height: 600px;
 
-      background-color: aquamarine;
+      background-color: #ffffff;
 
-      border-radius: 100%;
+      border-radius: 55px;
       box-shadow: inset black 0px 0px 2px 2px;
+      font-size: 22px;
+      font-family: 'Aleo', serif;
 
+}
+
+.image{
+      margin-top: 5px;
+      height: 250px;
+      width: 250px;
 }
 
 .input{
@@ -40,6 +49,32 @@ body{
       margin-top: 20px;
 
 }
+
+.input{
+      margin-top: 20px;
+
+      font-size: 14px;
+      border-radius: 6px;
+      line-height: 1.5;
+      padding: 5px 10px;
+      transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
+      border: 2px solid black;
+      color: rgb(14, 14, 16);
+      background: #38B6FF;
+      display: block;
+      height: 36px;
+      font-family: 'Aleo', serif;
+}
+.input:hover {
+          border-color: navy;
+          font-family: 'Aleo', serif;
+      }
+
+.input:focus{
+          border-color: black;
+          background: #fff;
+          font-family: 'Aleo', serif;
+      }
 
 .buttonContainer{
       
@@ -55,33 +90,38 @@ body{
 
 .button{
 
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      
+      display: inline-block;
+      outline: 0;
+      cursor: pointer;
+      border: 2px solid #000;
+      border-radius: 3px;
+      color: #000;
+      background: #38B6FF;
+      font-size: 20px;
+      font-weight: 600;
+      line-height: 28px;
+      padding: 12px 20px;
+      text-align:center;
+      transition-duration: .15s;
+      transition-property: all;
+      transition-timing-function: cubic-bezier(.4,0,.2,1);
       margin: 5px;
-      width: 80px;
-      height: 30px;
-
-      border: black solid 2px;
-
-      user-select: none;
-
+      font-family: 'Aleo', serif;
 }
 
 .button:hover{
-      background-color: white;
+      background: white;
+      font-family: 'Aleo', serif;
+      border-color: navy;
 }
-
 #messageAlerts{
 
       color: red;
-
-      position: absolute;
-      top: 470px;
-
+      font-family: 'Aleo', serif;
+      position: relative;
+      top: 5px;
       text-align: center;
+      margin-bottom: 5px;
 
       width: 300px;
 
