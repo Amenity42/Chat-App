@@ -1,4 +1,7 @@
+
+
 const socket = io('http://localhost:8080');
+let username = undefined;
 
 class Message {
 	constructor(message, user) {
@@ -7,20 +10,39 @@ class Message {
 	}
 }
 
+
+
+function setUserName(name) {
+
+	username = name;
+
+	console.log(`Username: ${username}`);
+
+}
+
+setUserName(localStorage.getItem('userName'));
+
+console.log(`Username: ${username}`);
+
+
 const messageInput = document.getElementById('messageInput');
 const messageContainer = document.getElementById('messageContainer');
+const sendBtn = document.getElementById('messageSend');
 
-const sendBtn = document
-	.getElementById('messageSend')
-	.addEventListener('click', handleMessage);
-const enterBtn = messageInput.addEventListener('keydown', (key) => {
-	if (key.keyCode === 13) {
-		//keycode is depreciated ---  need to use something else ...
+if(sendBtn !== null || messageInput !== null){
 
-		handleMessage();
-		
-	}
-});
+	sendBtn.addEventListener('click', handleMessage);
+	messageInput.addEventListener('keydown', (key) => {
+		if (key.keyCode === 13) {
+			//keycode is depreciated ---  need to use something else ...
+	
+			handleMessage();
+			
+		}
+	});
+
+}
+
 
 function handleMessage() {
 	
@@ -31,7 +53,7 @@ function handleMessage() {
 
 	console.log(messageInput.value);
 
-	const message = new Message(messageInput.value, 'Richard');
+	const message = new Message(messageInput.value, username); // To change to user
 
 	postMessageToChat(message);
 
@@ -59,3 +81,11 @@ function sendDataToServer(message){
 	socket.emit('message', message);
 
 }
+
+socket.on('recMessage', (message) => {
+
+	postMessageToChat(message);
+
+} );
+
+

@@ -22,6 +22,9 @@ socket.on('connection', (socket) => {
       socket.on('message', (message) => {
 
             console.log(message);
+
+		socket.broadcast.emit('recMessage', message);
+		
       
       });
       
@@ -63,7 +66,7 @@ app.get('/getAllUsers', async (request, response) => {
 });
 
 // * Check user info
-app.post('/userInfo', async (request, response) => {
+app.post('/userLogin', async (request, response) => {
 
 	const data = request.body;
 
@@ -80,13 +83,13 @@ app.post('/userInfo', async (request, response) => {
 });
 
 // * Check user info
-app.post('/createUser', async (request, response) => {
+app.post('/newUser', async (request, response) => {
 
 	const data = request.body;
 
 	//console.log(data);
 
-	const result = await checkUser.checkUser(data);
+	const result = await checkUser.newUser(data);
 
 	console.log(result);
 

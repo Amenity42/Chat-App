@@ -22,14 +22,14 @@ async function newUser(user){
 		let checkUserExists = await dbMethods.sqlUserExists(user);
 		if(checkUserExists[0]!=undefined){
 			console.log('Username is already taken');
-			return 0
+			return 3
 		} else {
 			dbMethods.addRow(user.inputUsername, user.inputPassword);
-			return 1;
+			return 4;
 		}
 	} else {
 		console.log('Username/password cannot contain non letter/number/underscore characters.');
-		return 2
+		return 5
 	};
 }
 
@@ -46,20 +46,20 @@ async function checkUser(user) {
 	//Check if username and password have valid characters
 	if (validPword === true && validUname === true) {
 		let checkUserExists = await dbMethods.sqlUserExists(user);
-	//Check user is in db		
-	if(checkUserExists[0]!=undefined){
-		//Check password is correct
-		if (checkUserExists[0].password === user.inputPassword) {
-			console.log('Password Matches');
-			return 1;
+		//Check user is in db		
+		if(checkUserExists[0]!=undefined){
+			//Check password is correct
+			if (checkUserExists[0].password === user.inputPassword) {
+				console.log('Password Matches');
+				return 1;
+			} else {
+				console.log(`Password does not match`);
+				return 0;
+			}
 		} else {
-			console.log(`Password does not match`);
-			return 0;
+			console.log('User does not exist');
+			return 2;
 		}
-	} else {
-		console.log('User does not exist');
-		return 2;
-	}
 	} else {
 		console.log('Error');
 	return new error("Invalid Password/Username");
@@ -67,7 +67,7 @@ async function checkUser(user) {
 };
 
 function onlyLettersAndNumbers(str) {
-	console.log(`Checking if string is letters and numbers: ${str}`); //! undefined
+	console.log(`Checking if string is letters and numbers: ${str}`); 
 	return /^[A-Za-z0-9_]*$/.test(str);
 }
 
