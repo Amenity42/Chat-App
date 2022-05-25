@@ -19,6 +19,7 @@ async function newUser(user){
 	let validUname = onlyLettersAndNumbers(user.inputUsername); //true / false
 	let validPword = onlyLettersAndNumbers(user.inputPassword);
 	if (validPword === true && validUname === true) {
+		user.inputPassword = random(user.inputPassword);
 		let checkUserExists = await dbMethods.sqlUserExists(user);
 		if(checkUserExists[0]!=undefined){
 			console.log('Username is already taken');
@@ -45,6 +46,7 @@ async function checkUser(user) {
 
 	//Check if username and password have valid characters
 	if (validPword === true && validUname === true) {
+		user.inputPassword = random(user.inputPassword);
 		let checkUserExists = await dbMethods.sqlUserExists(user);
 		//Check user is in db		
 		if(checkUserExists[0]!=undefined){
@@ -69,6 +71,15 @@ async function checkUser(user) {
 function onlyLettersAndNumbers(str) {
 	console.log(`Checking if string is letters and numbers: ${str}`); 
 	return /^[A-Za-z0-9_]*$/.test(str);
+}
+
+function random(seed) {
+	let tmpstr="";
+	for(i=0;i<seed.length;i++){
+		tmpstr += seed.charCodeAt(i)
+	}
+	var x = Math.sin(tmpstr++) * 10000;
+	return x - Math.floor(x);
 }
 
 //db.run("INSERT INTO users(username, password) VALUES('"+loginInput.inputUsername+"', '"+loginInput.inputPassword+"')");
