@@ -51,7 +51,7 @@ async function checkUser(user) {
 		//Check user is in db		
 		if(checkUserExists[0]!=undefined){
 			//Check password is correct
-			if (checkUserExists[0].password === user.inputPassword) {
+			if (checkUserExists[0].password === user.inputPassword.toString()) {
 				console.log('Password Matches');
 				return 1;
 			} else {
