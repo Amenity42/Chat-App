@@ -10,6 +10,8 @@ body{
             align-items: center;
       
             background-color: rgb(196, 196, 196);
+            background-image: url("bg.png");
+            background-repeat: repeat;
       
 }
 
@@ -60,7 +62,7 @@ body{
       transition: box-shadow 100ms ease-in, border 100ms ease-in, background-color 100ms ease-in;
       border: 2px solid black;
       color: rgb(14, 14, 16);
-      background: #38B6FF;
+      background: #abdffe;
       display: block;
       height: 36px;
       font-family: 'Aleo', serif;
@@ -96,7 +98,7 @@ body{
       border: 2px solid #000;
       border-radius: 3px;
       color: #000;
-      background: #38B6FF;
+      background: #a5deff;
       font-size: 20px;
       font-weight: 600;
       line-height: 28px;

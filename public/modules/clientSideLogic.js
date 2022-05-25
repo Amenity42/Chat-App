@@ -33,7 +33,10 @@ function setUserName(name) {
 setUserName(localStorage.getItem('userName'));
 onlineNotification();
 
-
+//prevent user opening chat page without logging in
+if(username===undefined || username ===null){
+	window.location.href = './index.html';
+}
 
 
 if (sendBtn !== null || messageInput !== null) {
