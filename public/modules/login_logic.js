@@ -1,8 +1,9 @@
 
 //* --------------------------------Login screen---------------------------------------- 
 
+
 const submitBtn = document.getElementById('submitButton');
-const newUser = document.getElementById('newUserButton');
+const newUserBtn = document.getElementById('newUserButton');
 const messageAlert = document.getElementById('messageAlerts');
 const inputUsername = document.getElementById('inputUsername');
 const inputPassword = document.getElementById('inputPassword');
@@ -48,7 +49,9 @@ submitBtn.addEventListener('click', () => {
 
       console.log(userInput);
 
-      fetch('/userInfo', {
+
+      //Fetch user information from server - log them in if correct 
+      fetch('/userLogin', {
 
             method: 'POST',
             headers: {
@@ -73,7 +76,14 @@ submitBtn.addEventListener('click', () => {
                   //Log user in
                   // alert('User loging in');
                   userPromt(1);
+                  console.log('Going to chat page');
+
+
+                  localStorage.setItem('userName', inputUsername.value);
+                  window.location.href = './chatPage.html';
+                  //setUserName(inputUsername.value); //This does not work as we call the new page
                   return;
+
             }
             if(data === 2){
 
@@ -82,11 +92,38 @@ submitBtn.addEventListener('click', () => {
                   return;
 
             }
-            
+
+
+      });
+});
+
+newUserBtn.addEventListener('click', () => {
+
+      const userInput = {inputUsername: inputUsername.value, inputPassword: inputPassword.value};
+
+      //Send create user request to server
+      fetch('/newUser', {
+
+            method: 'POST',
+            headers: {
+                  'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(userInput)
+      
+      })
+      .then(response => response.json())
+      .then(data => {
+
+            console.log(data);
+
+            userPromt(data);
 
       });
 
 });
+
+
+
 
 function userPromt(accessCode){
 
@@ -100,13 +137,34 @@ function userPromt(accessCode){
 
             //Set message to logged in
             messageAlert.innerHTML = 'Logging in'
-            return;
+            return 'login';
 
       }
       if(accessCode === 2){
             
             //Set message to user does not exist
             messageAlert.innerHTML = 'User does not exist'
+            return;
+
+      }
+      if(accessCode === 3){
+            
+            //Set message to user does not exist
+            messageAlert.innerHTML = 'User name already used'
+            return;
+
+      }
+      if(accessCode === 4){
+            
+            //Set message to user does not exist
+            messageAlert.innerHTML = 'User created - please log in'
+            return;
+
+      }
+      if(accessCode === 5){
+            
+            //Set message to user does not exist
+            messageAlert.innerHTML = 'Invalid characters user'
             return;
 
       }

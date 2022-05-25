@@ -202,18 +202,20 @@
     "yargs-parser": "^21.0.1"
   },
   "scripts": {
+    "start": "server/server.js",
     "test": "jest",
     "test:report": "jest --coverage=true"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/alfiearmadillo/bootcamp.git"
+    "url": ""
+  },
+  "engines": {
+    "node": "16.15.0",
+    "npm": "8.8.0"
   },
   "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/alfiearmadillo/bootcamp/issues"
-  },
-  "homepage": "https://github.com/alfiearmadillo/bootcamp#readme",
+  "homepage": "",
   "keywords": []
 }

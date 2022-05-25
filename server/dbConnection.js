@@ -85,9 +85,9 @@ function getAllData(){
 //*----------------------------[ Add data row table ]-----------------------------------
 
 
-function addRow(Name, imagelink){
+function addRow(usn, pwd){
 
-      const InsertSqlData = `INSERT INTO users (NAME, imagelink) VALUES('${Name}', '${imagelink}')`
+      const InsertSqlData = `INSERT INTO users (username, password) VALUES('${usn}', '${pwd}')`
 
       return new Promise((resolve, reject) => {    
             if (!db) {
@@ -187,6 +187,24 @@ function editData(propertyName, newProperty, id){
 
 }
 
+//------Check user exists based on username
+
+function sqlUserExists(user) {
+
+	console.log(`Checking db for user `);
+	//return 1 or 0 based on if user exists
+	const sqlStatement = `SELECT * FROM users WHERE username = '${user.inputUsername}'`;
+	return new Promise((res, rej) => {
+		db.all(sqlStatement, (err, rows) => {
+			if (err) {
+				rej(new Error(err.message));
+			} else {
+				res(rows);
+			}
+		});
+	});
+}
+
 
 
 //Call back function
@@ -224,7 +242,7 @@ function editData(propertyName, newProperty, id){
 //*---------------------------
 
 
-module.exports = {getAllData, getTables, connectToDb, getDataById, editData, addRow};
+module.exports = {getAllData, getTables, connectToDb, getDataById, editData, addRow, sqlUserExists};
 
 
 

@@ -17,13 +17,25 @@ const socket = require('socket.io')(8080, {
 
 socket.on('connection', (socket) => {
       
-	console.log(socket.id);
+	// console.log(socket.id);
 
+	//Broadcast message to clients
       socket.on('message', (message) => {
 
             console.log(message);
+
+		socket.broadcast.emit('recMessage', message);
+		
       
       });
+
+	//Let clients know who logged in
+	socket.on('userLoggedIn', (user) => {
+
+		socket.broadcast.emit('notification', user);
+
+	});
+	
       
 });
 
@@ -63,7 +75,7 @@ app.get('/getAllUsers', async (request, response) => {
 });
 
 // * Check user info
-app.post('/userInfo', async (request, response) => {
+app.post('/userLogin', async (request, response) => {
 
 	const data = request.body;
 
@@ -80,13 +92,13 @@ app.post('/userInfo', async (request, response) => {
 });
 
 // * Check user info
-app.post('/createUser', async (request, response) => {
+app.post('/newUser', async (request, response) => {
 
 	const data = request.body;
 
 	//console.log(data);
 
-	const result = await checkUser.checkUser(data);
+	const result = await checkUser.newUser(data);
 
 	console.log(result);
 

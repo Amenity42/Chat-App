@@ -5,6 +5,9 @@
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Cha'app</title>
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Aleo&display=swap" rel="stylesheet">
 
 
       <script src="https://cdn.socket.io/socket.io-3.0.0.js"></script>
@@ -22,7 +25,10 @@
             <div class="header">
 
                   <div class="menu" id="menu"></div>
-                  <div class="userIcon" id="userIcon"></div>
+                  <div class="userIcon" id="userIcon">
+                        <div class="userNameDisplay" id="userNameDisplay"></div>
+                  </div>
+                  
 
             </div>
 
@@ -40,6 +46,10 @@
                   <button class="messageSend" id="messageSend">Send</button>
 
             </section>
+
+            <div class="notification" id="notification">
+                  <div id="notificationText"></div>
+            </div>
 
       </div>
       
