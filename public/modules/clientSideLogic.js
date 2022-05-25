@@ -34,7 +34,7 @@ setUserName(localStorage.getItem('userName'));
 onlineNotification();
 
 //prevent user opening chat page without logging in
-if(username===undefined){
+if(username===undefined || username ===null){
 	window.location.href = './index.html';
 }
 
