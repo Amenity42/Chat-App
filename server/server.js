@@ -17,8 +17,9 @@ const socket = require('socket.io')(8080, {
 
 socket.on('connection', (socket) => {
       
-	console.log(socket.id);
+	// console.log(socket.id);
 
+	//Broadcast message to clients
       socket.on('message', (message) => {
 
             console.log(message);
@@ -27,6 +28,14 @@ socket.on('connection', (socket) => {
 		
       
       });
+
+	//Let clients know who logged in
+	socket.on('userLoggedIn', (user) => {
+
+		socket.broadcast.emit('notification', user);
+
+	});
+	
       
 });
 
