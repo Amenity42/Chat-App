@@ -40,6 +40,12 @@ async function checkUser(user) {
 	let validUname = onlyLettersAndNumbers(user.inputUsername); //true / false
 	let validPword = onlyLettersAndNumbers(user.inputPassword);
 
+<<<<<<< HEAD
+=======
+	console.log(`username check: ${validUname}`); 
+	console.log(`password check: ${validPword}`);
+
+>>>>>>> main
 	//Check if username and password have valid characters
 	if (validPword === true && validUname === true) {
 		user.inputPassword = random(user.inputPassword);
@@ -48,7 +54,10 @@ async function checkUser(user) {
 		if(checkUserExists[0]!=undefined){
 			//Check password is correct
 			if (checkUserExists[0].password === user.inputPassword.toString()) {
+<<<<<<< HEAD
 				
+=======
+>>>>>>> main
 				console.log('Password Matches');
 				return 1;
 			} else {
@@ -66,9 +75,14 @@ async function checkUser(user) {
 };
 
 function onlyLettersAndNumbers(str) {
+<<<<<<< HEAD
 
 	return /^[A-Za-z0-9_]*$/.test(str);
 
+=======
+	console.log(`Checking if string is letters and numbers: ${str}`); 
+	return /^[A-Za-z0-9_]*$/.test(str);
+>>>>>>> main
 }
 
 function random(seed) {

@@ -33,18 +33,34 @@ function setUserName(name) {
 setUserName(localStorage.getItem('userName'));
 onlineNotification();
 
+<<<<<<< HEAD
 
 
 
 if(sendBtn !== null || messageInput !== null){
+=======
+//prevent user opening chat page without logging in
+if(username===undefined || username ===null){
+	window.location.href = './index.html';
+}
+
+
+if (sendBtn !== null || messageInput !== null) {
+>>>>>>> main
 
 	sendBtn.addEventListener('click', handleMessage);
 	messageInput.addEventListener('keydown', (key) => {
 		if (key.keyCode === 13) {
 			//keycode is depreciated ---  need to use something else ...
+<<<<<<< HEAD
 	
 			handleMessage();
 			
+=======
+
+			handleMessage();
+
+>>>>>>> main
 		}
 	});
 
@@ -52,7 +68,7 @@ if(sendBtn !== null || messageInput !== null){
 
 
 function handleMessage() {
-	
+
 	if (messageInput.value === '' || messageInput.value === null) {
 		console.log('No message to display');
 		return;
@@ -70,7 +86,7 @@ function handleMessage() {
 }
 
 function postMessageToChat(message) {
-    
+
 	const messagePacket = document.createElement('div');
 
 	messagePacket.id = 'message';
@@ -83,11 +99,16 @@ function postMessageToChat(message) {
 	console.table(message);
 }
 
+<<<<<<< HEAD
 function notifications(notification){
+=======
+function notifications(notification) {
+>>>>>>> main
 
 	const notificationElement = document.getElementById("notification");
 	const notificationText = document.getElementById('notificationText');
 
+<<<<<<< HEAD
 	if(notification !== undefined){
 		notificationsArray.push(notification);
 	}
@@ -95,12 +116,25 @@ function notifications(notification){
 	console.log(notificationsArray);
 
 	if(animCounter === 0){
+=======
+	if (notification !== undefined) {
+		notificationsArray.push(notification);
+	}
+
+	console.log(notificationsArray);
+
+	if (animCounter === 0) {
+>>>>>>> main
 		animCounter = 1;
 		//Display notification
 
 		notificationElement.style.display = 'block';
 
+<<<<<<< HEAD
 		notificationText.innerHTML = `${notificationsArray[notificationsArray.length -1]} Just logged in!`;
+=======
+		notificationText.innerHTML = `${notificationsArray[notificationsArray.length - 1]} Just logged in!`;
+>>>>>>> main
 
 		//Animation timers 
 		setTimeout(() => {
@@ -108,16 +142,27 @@ function notifications(notification){
 			notificationElement.style.opacity = 1;
 			notificationText.style.opacity = 1;
 			notificationElement.style.width = '300px';
+<<<<<<< HEAD
 			
+=======
+
+>>>>>>> main
 		}, 100);
 
 		setTimeout(() => {
 
 			notificationElement.style.opacity = 0;
+<<<<<<< HEAD
 			notificationElement.style.width = '0px'; 
 			
 		}, 2000);
 		
+=======
+			notificationElement.style.width = '0px';
+
+		}, 2000);
+
+>>>>>>> main
 		setTimeout(() => {
 
 			notificationElement.style.display = 'none';
@@ -127,7 +172,11 @@ function notifications(notification){
 			console.log(notificationsArray);
 			animCounter = 0;
 
+<<<<<<< HEAD
 			if(notificationsArray.length > 0){
+=======
+			if (notificationsArray.length > 0) {
+>>>>>>> main
 				notifications();
 			}
 
@@ -138,19 +187,31 @@ function notifications(notification){
 
 
 
+<<<<<<< HEAD
 	}
+=======
+}
+>>>>>>> main
 
 
 
 
 //*------------------------Sockets------------------------
+<<<<<<< HEAD
 function sendDataToServer(message){
+=======
+function sendDataToServer(message) {
+>>>>>>> main
 
 	socket.emit('message', message);
 
 }
 
+<<<<<<< HEAD
 function onlineNotification(){
+=======
+function onlineNotification() {
+>>>>>>> main
 
 	socket.emit('userLoggedIn', username);
 
@@ -161,16 +222,28 @@ socket.on('recMessage', (message) => {
 
 	postMessageToChat(message);
 
+<<<<<<< HEAD
 } );
+=======
+});
+>>>>>>> main
 
 //Display notifications to screen
 socket.on('notification', (notification) => {
 
 	notifications(notification);
 
+<<<<<<< HEAD
 } );
 
 
 
 
 
+=======
+});
+
+const icons = ["Icon1.png", "Icon2.png", "Icon3.png", "Icon4.png"];
+let randomIcon = icons[Math.floor(Math.random() * icons.length)];
+document.getElementById("userIcon").src = randomIcon;
+>>>>>>> main
