@@ -242,7 +242,7 @@ function sqlUserExists(user) {
 //*---------------------------
 
 
-module.exports = {getAllData, getTables, connectToDb, getDataById, editData, addRow, sqlUserExists};
+module.exports = {connectToDb, addRow, sqlUserExists};
 
 
 
