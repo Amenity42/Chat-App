@@ -18,6 +18,18 @@ const db = new sqlite3.Database(
 async function newUser(user){
 	let validUname = onlyLettersAndNumbers(user.inputUsername); //true / false
 	let validPword = onlyLettersAndNumbers(user.inputPassword);
+	if(user.inputUsername.length>20){
+		return 6
+	}
+	if(user.inputUsername.length<3){
+		return 7
+	}
+	if(user.inputPassword.length>20){
+		return 8
+	}
+	if(user.inputPassword.length<6){
+		return 9
+	}
 	if (validPword === true && validUname === true) {
 		user.inputPassword = random(user.inputPassword);
 		let checkUserExists = await dbMethods.sqlUserExists(user);
@@ -36,13 +48,9 @@ async function newUser(user){
 
 async function checkUser(user) {
 
-	console.log(`This is the user obj: ${user}`);
 	//waits till db loaded
 	let validUname = onlyLettersAndNumbers(user.inputUsername); //true / false
 	let validPword = onlyLettersAndNumbers(user.inputPassword);
-
-	console.log(`username check: ${validUname}`); 
-	console.log(`password check: ${validPword}`);
 
 	//Check if username and password have valid characters
 	if (validPword === true && validUname === true) {
@@ -69,7 +77,6 @@ async function checkUser(user) {
 };
 
 function onlyLettersAndNumbers(str) {
-	console.log(`Checking if string is letters and numbers: ${str}`); 
 	return /^[A-Za-z0-9_]*$/.test(str);
 }
 

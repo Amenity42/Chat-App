@@ -24,23 +24,23 @@ submitBtn.addEventListener('click', () => {
 
       }
 
-      //Check input is not longer than 20 chracters
-      if(inputUsername.value.length > 20 || inputUsername.value.length < 3){
+      // //Check input is not longer than 20 chracters
+      // if(inputUsername.value.length > 20 || inputUsername.value.length < 3){
 
-            //alert('User name must be between 0 - 20 characters');
-            messageAlert.innerHTML = 'User name must be between 0 - 20 characters';
+      //       //alert('User name must be between 0 - 20 characters');
+      //       messageAlert.innerHTML = 'User name must be between 3 - 20 characters';
 
-            // throw new Error('User name must be between 0 - 20 characters');
+      //       // throw new Error('User name must be between 0 - 20 characters');
 
-      }
+      // }
 
-      if(inputPassword.value.length > 20 || inputPassword.value.length < 6){
+      // if(inputPassword.value.length > 20 || inputPassword.value.length < 3){
 
-            //alert('Password must be between 6 - 20 characters');
-            messageAlert.innerHTML = 'Password must be between 6 - 20 characters';
-            // throw new Error('Password must be between 6 - 20 characters');
+      //       //alert('Password must be between 6 - 20 characters');
+      //       messageAlert.innerHTML = 'Password must be between 3 - 20 characters';
+      //       // throw new Error('Password must be between 6 - 20 characters');
 
-      }
+      // }
 
 
       console.log('button was clicked');
@@ -164,7 +164,35 @@ function userPromt(accessCode){
       if(accessCode === 5){
             
             //Set message to user does not exist
-            messageAlert.innerHTML = 'Invalid characters user'
+            messageAlert.innerHTML = 'Invalid Username/Password'
+            return;
+
+      }
+      if(accessCode === 6){
+            
+            //Set message to user does not exist
+            messageAlert.innerHTML = 'Username is too long. Max 20 char.'
+            return;
+
+      }
+      if(accessCode === 7){
+            
+            //Set message to user does not exist
+            messageAlert.innerHTML = 'Username is too short. Min 3 char.'
+            return;
+
+      }
+      if(accessCode === 8){
+            
+            //Set message to user does not exist
+            messageAlert.innerHTML = 'Password is too long. Max 20 char.'
+            return;
+
+      }
+      if(accessCode === 9){
+            
+            //Set message to user does not exist
+            messageAlert.innerHTML = 'Password is too short. Min 6 char.'
             return;
 
       }
