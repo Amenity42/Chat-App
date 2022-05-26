@@ -27,59 +27,59 @@ function connectToDb(){
 
 //*-------------------------------[ List all Tables ]--------------------------------------
 
-function getTables(){
-      //Get tables from db
+// function getTables(){
+//       //Get tables from db
 
-      if(db === undefined){
+//       if(db === undefined){
 
-            console.error('Db has not yet been connected');
+//             console.error('Db has not yet been connected');
 
-      } else {
+//       } else {
 
-            db.serialize(() => {
+//             db.serialize(() => {
 
-                  db.each("SELECT name FROM sqlite_schema WHERE type='table'", (err, data) => console.log(data));
+//                   db.each("SELECT name FROM sqlite_schema WHERE type='table'", (err, data) => console.log(data));
 
-            });
+//             });
 
-      }
+//       }
 
-}
+// }
 
 
 //*------------------------------[ Get data from table ]---------------------------------
 
 
-//Uses promises
-function getAllData(){
-      const  selectSql = `SELECT * FROM users`;
+// //Uses promises
+// function getAllData(){
+//       const  selectSql = `SELECT * FROM users`;
 
-      return new Promise((resolve, reject) => {    
-            if (!db) {
+//       return new Promise((resolve, reject) => {    
+//             if (!db) {
 
-                  reject(new Error('Db has not yet been connected'));
+//                   reject(new Error('Db has not yet been connected'));
 
-             } else {
+//              } else {
       
-                  db.all(selectSql, (err, rows) => {
+//                   db.all(selectSql, (err, rows) => {
             
-                         if(err){
+//                          if(err){
                   
-                              reject(new Error(err.message));
+//                               reject(new Error(err.message));
                   
-                         } else {
+//                          } else {
       
-                              resolve(rows);
+//                               resolve(rows);
                   
-                         } 
+//                          } 
       
-                   });
+//                    });
 
-            }
-      });
+//             }
+//       });
 
 
-}
+// }
 
 
 //*----------------------------[ Add data row table ]-----------------------------------
@@ -118,74 +118,74 @@ function addRow(usn, pwd){
 //*------------------------------[ Get by ID from table ]---------------------------------
 
 
-//Uses promises
-function getDataById(id){
-      const  selectSql = `SELECT * FROM users WHERE id = ${id}`;
+// //Uses promises
+// function getDataById(id){
+//       const  selectSql = `SELECT * FROM users WHERE id = ${id}`;
 
-      return new Promise((resolve, reject) => {    
-            if (!db) {
+//       return new Promise((resolve, reject) => {    
+//             if (!db) {
 
-                  reject(new Error('Db has not yet been connected'));
+//                   reject(new Error('Db has not yet been connected'));
 
-             } else {
+//              } else {
       
-                  db.all(selectSql, (err, rows) => {
+//                   db.all(selectSql, (err, rows) => {
             
-                         if(err){
+//                          if(err){
                   
-                              reject(new Error(err.message));
+//                               reject(new Error(err.message));
                   
-                         } else {
+//                          } else {
       
-                              resolve(rows);
+//                               resolve(rows);
                   
-                         } 
+//                          } 
       
-                   });
+//                    });
 
-            }
-      });
+//             }
+//       });
 
 
-}
+// }
 
 
 //*-----------------------------------[ Edit data ]--------------------------------------
 
 
-function editData(propertyName, newProperty, id){
+// function editData(propertyName, newProperty, id){
 
-      const table = 'users';
-      const editSql = `UPDATE ${table} SET ${propertyName} = '${newProperty}' WHERE id = ${id};`
+//       const table = 'users';
+//       const editSql = `UPDATE ${table} SET ${propertyName} = '${newProperty}' WHERE id = ${id};`
 
 
-      return new Promise((resolve, reject) => {    
-            if (!db) {
+//       return new Promise((resolve, reject) => {    
+//             if (!db) {
 
-                  reject(new Error('Db has not yet been connected'));
+//                   reject(new Error('Db has not yet been connected'));
 
-             } else {
+//              } else {
       
-                  db.run(editSql, (err, rows) => {
+//                   db.run(editSql, (err, rows) => {
             
-                         if(err){
+//                          if(err){
                   
-                              reject(new Error(err.message));
+//                               reject(new Error(err.message));
                   
-                         } else {
+//                          } else {
       
-                              resolve(console.log('Row updated'));
+//                               resolve(console.log('Row updated'));
                   
-                         } 
+//                          } 
       
-                   });
+//                    });
 
-            }
+//             }
 
-      });
+//       });
 
 
-}
+// }
 
 //------Check user exists based on username
 
