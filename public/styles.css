@@ -10,7 +10,7 @@ body{
             align-items: center;
       
             background-color: rgb(196, 196, 196);
-            background-image: url("bg.png");
+            background-image: url("./icons/bg.png");
             background-repeat: repeat;
       
 }

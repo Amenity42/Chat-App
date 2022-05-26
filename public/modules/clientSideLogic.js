@@ -175,7 +175,7 @@ function onlineNotification() {
 socket.on('recMessage', (message) => {
 
 	postMessageToChat(message);
-
+	
 });
 
 //Display notifications to screen
