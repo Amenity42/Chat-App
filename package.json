@@ -202,7 +202,7 @@
     "yargs-parser": "^21.0.1"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --watchAll",
     "test:report": "jest --coverage=true"
   },
   "repository": {

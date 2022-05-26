@@ -85,3 +85,6 @@ function random(seed) {
 //db.run("INSERT INTO users(username, password) VALUES('"+loginInput.inputUsername+"', '"+loginInput.inputPassword+"')");
 
 module.exports = {checkUser, newUser};
+module.exports = checkUser;
+module.exports = newUser;
+module.exports = onlyLettersAndNumbers;
