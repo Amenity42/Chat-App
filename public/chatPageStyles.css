@@ -64,10 +64,9 @@ body{
       align-items: center;
       font-family: 'Aleo', serif;
       width: 50px;
-      /* background-color: #000;  */
       height: 100%;
-      position: relative;
-      right:80px;
+      position: absolute;
+      right:120px;
 }
 
 .messageContainer{

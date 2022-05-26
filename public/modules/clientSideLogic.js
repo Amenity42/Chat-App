@@ -19,7 +19,7 @@ class Message {
 //Set user name at top of screen
 function setUserName(name) {
 
-	const userNameDisplay = document.getElementById('userNameDisplay')
+	const userNameDisplay = document.getElementById('userNameDisplay');
 
 	username = name;
 
