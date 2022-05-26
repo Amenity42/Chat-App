@@ -3,6 +3,7 @@ const socket = io('http://localhost:8080');
 const messageInput = document.getElementById('messageInput');
 const messageContainer = document.getElementById('messageContainer');
 const sendBtn = document.getElementById('messageSend');
+const logOutBtn = document.getElementById('logOut');
 
 let username = undefined;
 let animCounter = 0;
@@ -34,7 +35,7 @@ setUserName(localStorage.getItem('userName'));
 onlineNotification();
 
 //prevent user opening chat page without logging in
-if(username===undefined || username ===null){
+if(username===undefined || username ===null || username ==="null"){
 	window.location.href = './index.html';
 }
 
@@ -53,6 +54,15 @@ if (sendBtn !== null || messageInput !== null) {
 
 }
 
+if (logOutBtn !== null) { //log out
+	logOutBtn.addEventListener('click', logOut);
+}
+
+function logOut(){
+	setUserName(null)
+	localStorage.setItem('userName', null);
+	window.location.href = './index.html';
+}
 
 function handleMessage() {
 
