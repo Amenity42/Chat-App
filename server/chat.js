@@ -3,17 +3,6 @@
 const sqlite3 = require("sqlite3");
 const dbMethods = require('./dbConnection');
 
-const db = new sqlite3.Database(
-	"users.db",
-	sqlite3.OPEN_READWRITE,
-	(err) => {
-		if (err) {
-			return console.error(err.message);
-		} else {
-			console.log("\nSuccess connected to db!\n");
-		}
-	}
-);
 
 async function newUser(user){
 	let validUname = onlyLettersAndNumbers(user.inputUsername); //true / false

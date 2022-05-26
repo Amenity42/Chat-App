@@ -6,7 +6,7 @@ let db = undefined;
 
 function connectToDb(){
 
-      db = new sqlite.Database("users.db", sqlite.OPEN_READWRITE, (err) => {
+      db = new sqlite.Database("./users.db", sqlite.OPEN_READWRITE, (err) => {
 
             if(err){
             

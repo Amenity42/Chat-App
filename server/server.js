@@ -5,7 +5,7 @@ const checkUser = require('./chat')
 
 const dbMethods = require('./dbConnection');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 80;
 
 const socket = require('socket.io')(8080, {
 
