@@ -93,6 +93,8 @@ function postMessageToChat(message) {
 
 	messageContainer.appendChild(messagePacket);
 
+	messageContainer.scrollTop = messageContainer.scrollHeight;
+
 	console.table(message);
 }
 
