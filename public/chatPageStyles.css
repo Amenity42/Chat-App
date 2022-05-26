@@ -3,6 +3,8 @@ body{
 
       background-color: rgb(196, 196, 196);
       font-family: 'Aleo', serif;
+      background-image: url("bg.png");
+            background-repeat: repeat;
       
 
 }
@@ -24,7 +26,7 @@ body{
 
       width: 100%;
       height: 5rem;
-      background-color: #a1dcfe;
+      background-color: #a4deff;
       border: black solid 2px;
       font-family: 'Aleo', serif;
 
@@ -36,7 +38,8 @@ body{
       /* Menu stuff */
 
       position: absolute;
-      left: 30px;
+      left: 28px;
+      top: 22px;
       width: 20px;
       height: 10px;
       background-color: black;
@@ -44,7 +47,45 @@ body{
 
 }
 
+.dropbtn {
+      background-color: white;
+      color: black;
+      padding: 16px;
+      font-size: 16px;
+      font-family: 'Aleo', serif;
+      border: black solid, 2px;
+    }
+
+    .dropdownContent {
+      display: none;
+      position: absolute;
+      font-family: 'Aleo', serif;
+      background-color: #f1f1f1;
+      min-width: 80px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border: black solid, 2px;
+      
+    }
+    .dropdownContent a {
+      color: black;
+      font-family: 'Aleo', serif;
+      padding: 8px;
+      text-decoration: none;
+      display: block;
+      border: black solid, 2px;
+    }
+    
+    .dropdownContent a:hover {background-color: #ddd;}
+    
+    .menu:hover .dropdownContent {display: block;}
+    
+    .menu:hover .dropbtn {background-color: #ddd;}
+
+
+
 .userIcon{
+
 
       /* User icon displays here */
 
@@ -66,8 +107,8 @@ body{
       width: 50px;
       /* background-color: #000;  */
       height: 100%;
-      position: relative;
-      right:80px;
+      position: absolute;
+      right: 110px;
 }
 
 .messageContainer{
@@ -140,7 +181,7 @@ scrollbar-width: none;  /* Firefox */
       width: 100%;
       height: 100%;
       border: black solid 2px;
-
+      background-color: #3a3a3a;
       
 
 
@@ -198,7 +239,7 @@ scrollbar-width: none;  /* Firefox */
 
 }
 
-.logOut{
+/* .logOut{
 
       margin-left: 2.5%;
       width: 10%;
@@ -226,4 +267,4 @@ scrollbar-width: none;  /* Firefox */
       background-color: white;
       font-family: 'Aleo', serif;
       border-color: navy;
-}
+} */
