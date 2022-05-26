@@ -185,6 +185,6 @@ socket.on('notification', (notification) => {
 
 });
 
-const icons = ["Icon1.png", "Icon2.png", "Icon3.png", "Icon4.png"];
+const icons = ["../icons/Icon1.png", "../icons/Icon2.png", "../icons/Icon3.png", "../icons/Icon4.png"];
 let randomIcon = icons[Math.floor(Math.random() * icons.length)];
 document.getElementById("userIcon").src = randomIcon;
