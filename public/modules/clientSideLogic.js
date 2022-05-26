@@ -65,6 +65,7 @@ function logOut(){
 }
 
 function handleMessage() {
+	let fromUser = 'yes';
 
 	if (messageInput.value === '' || messageInput.value === null) {
 		console.log('No message to display');
@@ -75,21 +76,34 @@ function handleMessage() {
 
 	const message = new Message(messageInput.value, username); // To change to user
 
-	postMessageToChat(message);
+	postMessageToChat(message, fromUser);
 
 	messageInput.value = null;
 
 	sendDataToServer(message);
 }
 
-function postMessageToChat(message) {
+function postMessageToChat(message, fromUser) {
 
 	const messagePacket = document.createElement('div');
 
 	messagePacket.id = 'message';
 	messagePacket.className = 'message';
 
-	messagePacket.innerHTML = `${message.user}: ${message.message}`;
+	
+	//Check if message is external or from client
+	if(fromUser === 'yes'){
+
+		messagePacket.style.background = 'rgba(181, 180, 180, 0.562)';
+
+	}
+	else{
+
+		messagePacket.style.background = '#a1dcfeb7';
+
+	}
+
+	messagePacket.innerHTML = `<b>${message.user}:</b> &nbsp;  ${message.message} &nbsp;`;
 
 	messageContainer.appendChild(messagePacket);
 
@@ -175,7 +189,7 @@ function onlineNotification() {
 socket.on('recMessage', (message) => {
 
 	postMessageToChat(message);
-	
+
 });
 
 //Display notifications to screen
