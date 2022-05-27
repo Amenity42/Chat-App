@@ -251,7 +251,7 @@ scrollbar-width: none;  /* Firefox */
 .message{
 
       display: flex;
-      /* justify-content: center; */
+      
       align-items: center;
       text-align: left;
       background-color: rgba(181, 180, 180, 0.562);
@@ -264,6 +264,7 @@ scrollbar-width: none;  /* Firefox */
       width:fit-content;
       max-width: 95%;
       overflow-wrap: break-word;
+      word-wrap: break-word;
 
       border-radius: 15px;
 

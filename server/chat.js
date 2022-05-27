@@ -61,7 +61,7 @@ async function checkUser(user) {
 		}
 	} else {
 		console.log('Error');
-	return new error("Invalid Password/Username");
+		return 5
 	};
 };
 

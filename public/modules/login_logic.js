@@ -64,13 +64,6 @@ submitBtn.addEventListener('click', () => {
       .then(data => {
             console.log(data);
 
-            if(data === 0){
-
-                  // alert('Password is incorrect');
-                  userPromt(0);
-                  return;
-
-            }
             if(data === 1){
 
                   //Log user in
@@ -84,12 +77,10 @@ submitBtn.addEventListener('click', () => {
                   //setUserName(inputUsername.value); //This does not work as we call the new page
                   return;
 
-            }
-            if(data === 2){
+            } else {
 
-                  // alert('User does not exist');
-                  userPromt(2);
-                  return;
+                  //Display message to user
+                  userPromt(data);
 
             }
 
@@ -164,7 +155,7 @@ function userPromt(accessCode){
       if(accessCode === 5){
             
             //Set message to user does not exist
-            messageAlert.innerHTML = 'Invalid Username/Password'
+            messageAlert.innerHTML = 'Username/password cannot contain non letter/number/underscore characters.'
             return;
 
       }
